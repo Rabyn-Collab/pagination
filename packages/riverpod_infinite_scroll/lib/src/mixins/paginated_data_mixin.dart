@@ -8,7 +8,7 @@ import 'package:riverpod_infinite_scroll_pagination/riverpod_infinite_scroll_pag
 
 ///Mixin for default AsyncNotifiers (`AutoDisposeAsyncNotifier`)
 ///(Providers created with `@riverpod`)
-mixin PaginatedDataMixin<T> on BuildlessAutoDisposeAsyncNotifier<List<T>>
+abstract class PaginatedDataMixin<T> extends AsyncNotifier<List<T>>
     implements PaginatedNotifier<T> {
   String? queryFilter;
   late PaginatedDataRepository<T>? _dataFetcher;
