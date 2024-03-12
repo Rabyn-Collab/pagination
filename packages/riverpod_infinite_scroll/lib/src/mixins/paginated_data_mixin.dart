@@ -2,13 +2,13 @@
 library riverpod_infinite_scroll_pagination;
 
 import 'dart:async';
-
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_infinite_scroll_pagination/riverpod_infinite_scroll_pagination.dart';
 
 ///Mixin for default AsyncNotifiers (`AutoDisposeAsyncNotifier`)
 ///(Providers created with `@riverpod`)
-abstract class PaginatedDataMixin<T> extends AsyncNotifier<List<T>>
+mixin PaginatedDataMixin<T> on BuildlessAutoDisposeAsyncNotifier<List<T>>
     implements PaginatedNotifier<T> {
   String? queryFilter;
   late PaginatedDataRepository<T>? _dataFetcher;
